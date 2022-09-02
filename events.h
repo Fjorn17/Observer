@@ -1,39 +1,33 @@
 #ifndef EVENTS_H
 #define EVENTS_H
 
-#include <vector>
+#include <list>
 #include <string>
 
 #include "observer.h"
 
 typedef std::string string;
 
+
 //Subject
 class Event {
-private:
-	vector<Observer> observers;
 public:
-	virtual void attach(Observer *observer) = 0;
-	virtual void detach(Observer *observer) = 0;
-	virtual void notify() = 0;
-protected:
+	virtual void attachObserver(Observer *observer) = 0;
+	virtual void detachObserver(Observer *observer) = 0;
+	virtual void notifyObserver() = 0;
 
+protected:
+	std::list<Observer*> observers;
+	string message;
 };
 
 class OnMouseDown : Event {
 public:
-	void attach(Observer* observer) override;
-	void detach(Observer* observer) override;
-	void notify() override;
+	OnMouseDown();
 
-
-};
-
-class OnClick : Event {
-
-};
-
-class OnMouseUp : Event {
+	void attachObserver(Observer* observer) override;
+	void detachObserver(Observer* observer) override;
+	void notifyObserver() override;
 
 };
 
