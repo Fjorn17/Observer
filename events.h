@@ -10,6 +10,10 @@ typedef Observer:Observer Observer;
 class Event {
 private:
 	vector<Observer> observers;
+public:
+	void attach(Observer observer);
+	void detach(Observer observer);
+	void notify();
 };
 
 #endif // !OBSERVER_H
