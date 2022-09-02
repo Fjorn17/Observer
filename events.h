@@ -1,5 +1,8 @@
-#pragma once
+#ifndef OBSERVER_H
+#define OBSERVER_H
 
-class Events {
+class Event {
 
 };
+
+#endif // !OBSERVER_H
