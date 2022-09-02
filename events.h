@@ -11,9 +11,9 @@ class Event {
 private:
 	vector<Observer> observers;
 public:
-	void attach(Observer observer);
-	void detach(Observer observer);
-	void notify();
+	virtual void attach(Observer observer) = 0;
+	virtual void detach(Observer observer) = 0;
+	virtual void notify() = 0;
 };
 
 #endif // !OBSERVER_H
