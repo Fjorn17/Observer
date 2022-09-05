@@ -11,7 +11,7 @@ void OnMouseDown::attachObserver(Observer* observer) {
 void OnMouseDown::detachObserver(Observer* observer) {
 	observers.remove(observer);
 }
-void OnMouseDown::notifyObserver() {
+void OnMouseDown::notifyObservers() {
 	for (auto observer : observers) {
 		observer->update(message);
 	}

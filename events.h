@@ -14,7 +14,7 @@ class Event {
 public:
 	virtual void attachObserver(Observer *observer) = 0;
 	virtual void detachObserver(Observer *observer) = 0;
-	virtual void notifyObserver() = 0;
+	virtual void notifyObservers() = 0;
 
 protected:
 	std::list<Observer*> observers;
@@ -23,11 +23,11 @@ protected:
 
 class OnMouseDown : Event {
 public:
-	OnMouseDown();
+	OnMouseDown(string message);
 
 	void attachObserver(Observer* observer) override;
 	void detachObserver(Observer* observer) override;
-	void notifyObserver() override;
+	void notifyObservers() override;
 
 };
 

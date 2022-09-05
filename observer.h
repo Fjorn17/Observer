@@ -3,21 +3,26 @@
 
 #include<iostream>
 #include <string>
+#include "events.h"
 
 typedef std::string string;
 
 class Observer {
 public:
-	virtual ~Observer() {};
 	virtual void update(string message) = 0;
+	virtual void removeMeFromTheList() = 0;
+protected:
+	string message;
+	Event event;
 };
 
 class Printer : Observer {
-private:
-	string message;
 public:
 	Printer(string message) :message(message){};
 	void update(string message) override;
+	void removeMeFromTheList() override;
+private:
+	void printMessage();
 };
 
 #endif // !OBSERVER_H
