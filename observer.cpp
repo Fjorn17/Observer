@@ -1,12 +1,12 @@
 #include "observer.h"
 
 void Printer::update(string message) {
-	this->message = message;
+	this->_message = message;
 	printMessage();
 }
 
 void Printer::printMessage() {
-	std::cout << message << std::endl;
+	std::cout << _message << std::endl;
 }
 
 void Printer::removeMeFromTheList(){

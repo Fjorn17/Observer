@@ -17,8 +17,8 @@ public:
 	virtual void notifyObservers() = 0;
 
 protected:
-	std::list<Observer*> observers;
-	string message;
+	std::list<Observer*> _observers;
+	string _message;
 };
 
 class OnMouseDown : Event {

@@ -12,13 +12,16 @@ public:
 	virtual void update(string message) = 0;
 	virtual void removeMeFromTheList() = 0;
 protected:
-	string message;
-	Event event;
+	string _message;
+	Event _event;
 };
 
 class Printer : Observer {
 public:
-	Printer(string message) :message(message){};
+	Printer(string myEvent) :_event(myEvent){
+		this->_event.attachObserver(this);
+	};
+
 	void update(string message) override;
 	void removeMeFromTheList() override;
 private:
